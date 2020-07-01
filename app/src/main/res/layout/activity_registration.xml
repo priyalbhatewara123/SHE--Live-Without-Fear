@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".Registration"
+    android:background="@drawable/background">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:src="@drawable/logoblack"
+        android:paddingTop="5dp"
+        android:id="@+id/iv1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv1"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-black"
+        android:text="REGISTER HERE"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tv1"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv1"
+        android:hint="Full Name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/et1"
+        android:textColorHint="#000000"
+        android:inputType="textPersonName"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et1"
+        android:hint="Contact No."
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/et2"
+        android:textColorHint="#000000"
+        android:inputType="phone"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et2"
+        android:hint="Email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/et3"
+        android:textColorHint="#000000"
+        android:inputType="textEmailAddress"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et3"
+        android:hint="Password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/et4"
+        android:textColorHint="#000000"
+        android:inputType="textPassword"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et4"
+        android:hint="Confirm Password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/et5"
+        android:textColorHint="#000000"
+        android:inputType="textPassword"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="REGISTER"
+        android:textColor="#ffffff"
+        android:background="@drawable/button"
+        android:id="@+id/b1"
+        />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/b1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already an user?"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:id="@+id/tv2"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tv2"
+        android:text="LogIn Here"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/tv3"
+        />
+     </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+
+
+</ScrollView>

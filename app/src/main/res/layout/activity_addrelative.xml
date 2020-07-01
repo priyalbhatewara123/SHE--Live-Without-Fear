@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".addrelative"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logoblack"
+        android:layout_marginTop="20dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD RELATIVES"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:hint="Name"
+        android:layout_marginHorizontal="20dp"
+        android:textColorHint="#000000"
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/et8"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Contact No."
+        android:layout_marginHorizontal="20dp"
+        android:textColorHint="#000000"
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/et9"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:text="ADD"
+        android:layout_marginTop="25dp"
+        android:textColor="#ffffff"
+        android:id="@+id/b3"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:text="VIEW CONTACTS"
+        android:layout_marginTop="25dp"
+        android:padding="10dp"
+        android:textColor="#ffffff"
+        android:id="@+id/b4"/>
+
+
+</LinearLayout>
