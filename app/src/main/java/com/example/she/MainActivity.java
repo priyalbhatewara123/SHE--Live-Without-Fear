@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         cv1 = findViewById(R.id.card1);
         cv2 = findViewById(R.id.card2);
         cv3 = findViewById(R.id.card3);
-        cv5 = findViewById(R.id.card5);
         cv6 = findViewById(R.id.card6);
         cv7 = findViewById(R.id.card7);
         cv8 = findViewById(R.id.card8);
@@ -64,6 +63,14 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        cv6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,Howtouse.class));
+            }
+        });
+
 
 
     }

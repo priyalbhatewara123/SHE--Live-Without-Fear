@@ -7,31 +7,67 @@
     tools:context=".siren"
     android:background="@drawable/background">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="50dp"
+        app:cardCornerRadius="20dp"
+        android:elevation="10dp">
+
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#4d0066"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Press the play button below to play the siren."
+            android:id="@+id/txt_view3"
+            android:textSize="15sp"
+            android:gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:textColor="#000000"/>
 
         <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:id="@+id/b5"
             android:background="@mipmap/play"
             android:onClick="play"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txt_view3"
+            android:layout_marginVertical="30dp"
             />
 
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/b6"
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Press the stop button below to stop the siren."
+            android:id="@+id/txt_view4"
+            android:textSize="15sp"
+            android:gravity="center_horizontal"
             android:layout_below="@+id/b5"
+            android:layout_centerHorizontal="true"
+            android:textColor="#000000"/>
+
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/b6"
+            android:layout_below="@+id/txt_view4"
             android:background="@mipmap/stop"
             android:layout_marginTop="30dp"
             android:onClick="stop"
+            android:layout_centerHorizontal="true"
             />
 
 
     </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
 
 
 </RelativeLayout>

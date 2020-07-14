@@ -5,8 +5,8 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -15,11 +15,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".emergency"></activity>
+        <activity android:name=".Howtouse"></activity>
+        <activity android:name=".emergency" />
         <activity android:name=".ViewContacts" />
         <activity android:name=".siren" />
         <activity android:name=".helpline" />
-        <activity android:name=".addrelative"></activity>
+        <activity android:name=".addrelative" />
         <activity android:name=".login" />
         <activity android:name=".Registration" />
         <activity android:name=".splashh">
