@@ -16,26 +16,18 @@
         android:layout_marginTop="20dp"/>
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ADD RELATIVES"
-        android:textColor="#000000"
-        android:textSize="40sp"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold"
-        />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
         android:hint="Name"
         android:layout_marginHorizontal="20dp"
         android:textColorHint="#000000"
         android:textAlignment="center"
         android:layout_gravity="center_horizontal"
-        android:id="@+id/et8"/>
+        android:id="@+id/et8"
+        android:inputType="textPersonName"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -46,27 +38,50 @@
         android:textColorHint="#000000"
         android:textAlignment="center"
         android:layout_gravity="center_horizontal"
-        android:id="@+id/et9"/>
+        android:id="@+id/et9"
+        android:inputType="phone"/>
 
 
-    <Button
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/button"
-        android:text="ADD"
-        android:layout_marginTop="25dp"
-        android:textColor="#ffffff"
-        android:id="@+id/b3"/>
+        android:id="@+id/rl3"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        >
 
-    <Button
-        android:layout_width="wrap_content"
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:text="ADD"
+            android:layout_marginTop="25dp"
+            android:textColor="#ffffff"
+            android:id="@+id/b3"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:text="Contacts"
+            android:layout_marginTop="25dp"
+            android:textColor="#ffffff"
+            android:id="@+id/b4"
+            android:layout_toRightOf="@+id/b3"
+            android:layout_marginLeft="30dp"
+            android:padding="10dp"/>
+
+    </RelativeLayout>
+
+
+    <ProgressBar
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/button"
-        android:text="VIEW CONTACTS"
-        android:layout_marginTop="25dp"
-        android:padding="10dp"
-        android:textColor="#ffffff"
-        android:id="@+id/b4"/>
+        android:layout_marginTop="20dp"
+        android:id="@+id/pb3"
+        android:visibility="invisible"
+        android:layout_marginBottom="10dp"/>
+
 
 
 </LinearLayout>

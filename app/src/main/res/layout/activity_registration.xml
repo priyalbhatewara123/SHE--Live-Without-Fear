@@ -44,35 +44,36 @@
         android:textColorHint="#000000"
         android:inputType="textPersonName"
         />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et1"
-        android:hint="Contact No."
-        android:layout_centerHorizontal="true"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/et2"
-        android:textColorHint="#000000"
-        android:inputType="phone"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/et2"
         android:hint="Email"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:id="@+id/et3"
+        android:id="@+id/et2"
         android:textColorHint="#000000"
         android:inputType="textEmailAddress"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/et3"
+        android:layout_below="@+id/et2"
         android:hint="Password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/et3"
+        android:textColorHint="#000000"
+        android:inputType="textPassword"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et3"
+        android:hint="Confirm Password"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
@@ -80,22 +81,10 @@
         android:textColorHint="#000000"
         android:inputType="textPassword"
         />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/et4"
-        android:hint="Confirm Password"
-        android:layout_centerHorizontal="true"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/et5"
-        android:textColorHint="#000000"
-        android:inputType="textPassword"
-        />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/et5"
+        android:layout_below="@+id/et4"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:text="REGISTER"
@@ -110,7 +99,8 @@
         android:layout_below="@id/b1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="10dp"
+        android:id="@+id/rl">
 
     <TextView
         android:layout_width="wrap_content"
@@ -132,6 +122,16 @@
         android:id="@+id/tv3"
         />
      </RelativeLayout>
+
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl"
+            android:layout_marginBottom="30dp"
+            android:visibility="invisible"
+            android:id="@+id/pb"
+            />
+
 
     </RelativeLayout>
 

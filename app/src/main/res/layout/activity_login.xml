@@ -32,13 +32,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv4"
-        android:hint="Contact No."
+        android:hint="Email"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
         android:id="@+id/et6"
         android:textColorHint="#000000"
-        android:inputType="phone"
+        android:inputType="textEmailAddress"
         />
     <EditText
         android:layout_width="match_parent"
@@ -69,7 +69,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/b2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:id="@+id/rl2">
 
         <TextView
             android:layout_width="wrap_content"
@@ -91,5 +92,15 @@
             android:id="@+id/tv6"
             />
     </RelativeLayout>
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl2"
+        android:layout_marginTop="30dp"
+        android:visibility="invisible"
+        android:id="@+id/pb2"
+        android:layout_marginBottom="20dp"
+        />
 
 </RelativeLayout>

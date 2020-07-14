@@ -21,6 +21,7 @@ public class siren extends AppCompatActivity {
     public void play(View view) {
         if (player == null) {
             player = MediaPlayer.create(this, R.raw.policesiren);
+            player.setLooping(true);
             player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
