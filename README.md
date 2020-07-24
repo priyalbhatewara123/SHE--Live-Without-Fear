@@ -14,3 +14,5 @@ Women's safety is a big concern till date. Womens of various age group have been
 * She can play fake siren by clicking the play button.
 * She can call on various helpline numbers on just a single click.
 
+**API Used:-**
+*Fused Location Provider API*
