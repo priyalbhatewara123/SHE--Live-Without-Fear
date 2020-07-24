@@ -4,6 +4,7 @@ Women's safety is a big concern till date. Womens of various age group have been
 ```SHE is a Women safety app that can be accessed easily at the time of emergency . User just need to press a button and it sends an alert message along with your location to the registered contacts.```
 
 
+**Here is a glimpse of the application**
 
-<img src="https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/app/src/main/res/mipmap-xxxhdpi/Screenshot1.jpeg" width="300">
+<img src="https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/app/src/main/res/mipmap-xxxhdpi/Screenshot1.jpeg" width="300">     <img src="https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/app/src/main/res/mipmap-xxxhdpi/Screenshot2.jpeg" width="300"> 
 
