@@ -16,3 +16,8 @@ Women's safety is a big concern till date. Womens of various age group have been
 
 **API Used:-**
 *Fused Location Provider API*
+
+```**Dependencies added :- **
+
+implementation "androidx.cardview:cardview:1.0.0"
+implementation 'com.google.android.gms:play-services-location:17.0.0' ```
