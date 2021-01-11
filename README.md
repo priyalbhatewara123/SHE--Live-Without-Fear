@@ -6,7 +6,7 @@ Women's safety is a big concern till date. Womens of various age group have been
 
 **Here is a glimpse of the application**
 
-<img src="https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/app/src/main/res/mipmap-xxxhdpi/Screenshot1.jpeg" width="300">
+<img src="https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/screenshots/Screenshot1.jpeg" width="300">
 
 **Features:-**
 * First User need to register contacts of her family and friends.
