@@ -21,17 +21,17 @@ Women's safety is a big concern till date. Womens of various age group have been
 
 ## Tech Stack
 
-**Language:**
+**Language :**
 * Java
 
-**Database used**
+**Database used :**
 * Firebase - for authentication.
 * SQLite - for storing contacts locally on android device.
 
-**API Used:-**
+**API Used :**
 *Fused Location Provider API*
 
-**Dependencies added :-**
+**Dependencies added :**
 ```
 implementation "androidx.cardview:cardview:1.0.0"
 implementation 'com.google.android.gms:play-services-location:17.0.0' 
