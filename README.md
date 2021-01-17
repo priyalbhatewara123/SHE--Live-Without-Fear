@@ -1,6 +1,8 @@
 # SHE--Live-Without-Fear
 
-<img src="https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/app/src/main/res/mipmap-xhdpi/logo.png" width="150" style="text-align:center">
+<p align="center">
+  <img src="https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/app/src/main/res/mipmap-xhdpi/logo.png" width="150" />
+</p>
 
 SHE is a Women safety android application📱 that can be accessed easily at the time of emergency 🚨👀. User just need to press an emergency button and it sends an alert message along with the current location to the registered contacts.🚀🙌
 
