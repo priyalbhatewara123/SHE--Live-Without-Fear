@@ -37,3 +37,7 @@ implementation "androidx.cardview:cardview:1.0.0"
 implementation 'com.google.android.gms:play-services-location:17.0.0' 
 ```
 ### Built in : Android Studio🚀
+
+## LICENSE
+
+[Apache License 2.0](https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/LICENSE)
