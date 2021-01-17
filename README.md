@@ -19,7 +19,7 @@ Women's safety is a big concern till date. Womens of various age group have been
 * She can play fake siren by clicking the play button.
 * She can call on various helpline numbers on just a single click.
 
-## Tech Stack
+## Tech Stack👩‍💻
 
 **Language :**
 * Java
@@ -38,6 +38,6 @@ implementation 'com.google.android.gms:play-services-location:17.0.0'
 ```
 ### Built in : Android Studio🚀
 
-## LICENSE
+## LICENSE 
 
 [Apache License 2.0](https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/LICENSE)
