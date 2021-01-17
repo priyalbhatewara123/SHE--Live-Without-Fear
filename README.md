@@ -29,7 +29,7 @@ Women's safety is a big concern till date. Womens of various age group have been
 * SQLite - for storing contacts locally on android device.
 
 **API Used :**
-*Fused Location Provider API*
+Fused Location Provider API
 
 **Dependencies added :**
 ```
