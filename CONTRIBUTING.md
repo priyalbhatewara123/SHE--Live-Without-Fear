@@ -16,6 +16,8 @@ We are happy to welcome all the contributions from anyone willing to improve/add
 * Issues would be tagged as Easy, Medium, Hard. Scores would be assigned on the difficulty of Issue you solve.
 * For frontend changes kindly share screenshots of your work before sending a PR.
 
+👀Make sure your code works before submitting it :D
+
 🔸 For any queries or discussions, please drop a message in our JWOC discord server!
 
 # Getting Started👩‍💻👨‍💻
