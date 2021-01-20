@@ -10,6 +10,7 @@ We are happy to welcome all the contributions from anyone willing to improve/add
 * Participants/contributors can also open new issues, but it needs to be verified and labelled by a mentor.
 * Before opening a new issue, please check if it exists or not.
 * Create a pull request from a branch other than **main**.
+* __All PRs must be made from a seperate branch. Create a separate branch for every Issue you are working upon and once found fit, make a PR.__
 * Make proper commit messages and document your PR well.
 * Always add Comments in your Code and explain it at points.
 * Issues would be tagged as Easy, Medium, Hard. Scores would be assigned on the difficulty of Issue you solve.
