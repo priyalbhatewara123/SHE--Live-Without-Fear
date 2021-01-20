@@ -38,6 +38,9 @@ implementation 'com.google.android.gms:play-services-location:17.0.0'
 ```
 ### Built in : Android Studio🚀
 
+## Contributing Guidelines
+Check the guidelines [here](https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/CONTRIBUTING.md).
+
 ## Code of Conduct
 You can find code of conduct [here](https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/CODE_OF_CONDUCT.md).
 
