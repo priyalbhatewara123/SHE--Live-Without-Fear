@@ -17,7 +17,7 @@ We are happy to welcome all the contributions from anyone willing to improve/add
 
 🔸 For any queries or discussions, please drop a message in our JWOC discord server!
 
-# Getting Started
+# Getting Started👩‍💻👨‍💻
 Below you will find the steps involved in creating a Pull Request:
 ## Step 0: Star this repository⭐
 You can star this repository by clicking on the star button at the top right corner.
@@ -90,3 +90,6 @@ $ git push -u origin <branch_name>
 Go to your repository in browser and click on compare and pull requests. Then add a title and description to your pull request that explains your contribution.
 
 Hurray🎉 Your Pull Request has been submitted and will be reviewed by the moderators and merged.🥳
+
+## 🤷‍♀️Need more help?
+📜Refer to the GitHub official documentation [here](https://docs.github.com/en/github).
