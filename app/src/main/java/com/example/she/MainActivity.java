@@ -1,13 +1,14 @@
 package com.example.she;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
@@ -57,10 +58,7 @@ public class MainActivity extends AppCompatActivity {
         cv8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firebaseAuth.signOut();
-                Toast.makeText(MainActivity.this, "Logged out successfully", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainActivity.this,login.class));
-                finish();
+                showAlertDialog();
             }
         });
 
@@ -70,9 +68,31 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,Howtouse.class));
             }
         });
-
-
-
     }
 
+    private void logOut(){
+        firebaseAuth.signOut();
+        Toast.makeText(MainActivity.this, "Logged out successfully", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(MainActivity.this,login.class));
+        finish();
+    }
+
+    private void showAlertDialog(){
+        new AlertDialog.Builder(this)
+                .setTitle("Logout")
+                .setMessage("Are you sure you want to logout?")
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .setPositiveButton("Logout", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        logOut();
+                    }
+                }).show();
+    }
 }
