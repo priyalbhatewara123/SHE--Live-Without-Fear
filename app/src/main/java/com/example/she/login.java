@@ -2,7 +2,6 @@ package com.example.she;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,21 +11,16 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.ActionCodeSettings;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 public class login extends AppCompatActivity {
     EditText e6,e7;
     Button b;
-    TextView t;
+    TextView t,forgetPassTv;
     FirebaseAuth fb;
     String logname , logpassword;
     ProgressBar progressBar;
@@ -39,8 +33,10 @@ public class login extends AppCompatActivity {
         e7 = findViewById(R.id.et7);
         b = findViewById(R.id.b2);
         t = findViewById(R.id.tv6);
+        forgetPassTv = findViewById(R.id.forget_password_tv);
         progressBar = findViewById(R.id.pb2);
         fb = FirebaseAuth.getInstance();
+        ActionCodeSettings actionCodeSettings;
 
         t.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,18 +54,16 @@ public class login extends AppCompatActivity {
                 String password = e7.getText().toString().trim();
                 if (TextUtils.isEmpty(email)) {
                     e6.setError("Email is Required.");
+                    e6.requestFocus();
                     return;
-
                 }
 
                 if (TextUtils.isEmpty(password)) {
                     e7.setError("Password is Required");
+                    e7.requestFocus();
                     return;
-
                 }
                 progressBar.setVisibility(View.VISIBLE);
-
-
 
                fb.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -85,11 +79,40 @@ public class login extends AppCompatActivity {
                         }
                     }
                 });
-
             }
-
         });
 
+        forgetPassTv.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                String email = e6.getText().toString().trim();
+                if (TextUtils.isEmpty(email)) {
+                    e6.setError("Email is Required.");
+                    e6.requestFocus();
+                    return;
+                }
+                progressBar.setVisibility(View.VISIBLE);
+                fb.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful())
+                            Toast.makeText(getApplicationContext(),
+                                    "Reset password link sent to your email",
+                                    Toast.LENGTH_SHORT)
+                                    .show();
+                        else
+                            Toast.makeText(getApplicationContext(),
+                                    "Couldn't find your email",
+                                    Toast.LENGTH_SHORT)
+                                    .show();
+
+                        progressBar.setVisibility(View.INVISIBLE);
+                    }
+                });
+
+            }
+        });
 
     }
 }
