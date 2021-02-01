@@ -38,7 +38,7 @@
 
         android:layout_marginStart="25dp"
         app:layout_constraintBottom_toTopOf="@id/contact_number"
-        app:layout_constraintEnd_toStartOf="@id/edit"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/contact_initial"
         app:layout_constraintTop_toTopOf="@id/contact_initial" />
 
@@ -56,29 +56,15 @@
         app:layout_constraintTop_toBottomOf="@id/contact_name" />
 
     <ImageView
-        android:id="@+id/edit"
+        android:id="@+id/options"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:src="@drawable/ic_baseline_edit_24"
+        android:src="@drawable/ic_baseline_more_vert_24"
 
         android:layout_margin="5dp"
-        app:layout_constraintBottom_toTopOf="@id/delete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:src="@drawable/ic_baseline_delete_24"
-
-        android:layout_margin="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

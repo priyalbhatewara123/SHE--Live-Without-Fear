@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">She</string>
     <string name="forgot_password">Forgot password?</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
 </resources>
