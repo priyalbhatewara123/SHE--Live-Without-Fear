@@ -17,12 +17,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Registration extends AppCompatActivity {
-    EditText e1,e2,e3,e4;
+    TextInputLayout e1,e2,e3,e4;
     Button b;
     TextView tv;
     ProgressBar progressBar;
@@ -49,10 +50,10 @@ public class Registration extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = e1.getText().toString().trim();
-                String email = e2.getText().toString().trim();
-                String password = e3.getText().toString().trim();
-                String confpassword = e4.getText().toString().trim();
+                String name = e1.getEditText().getText().toString().trim();
+                String email = e2.getEditText().getText().toString().trim();
+                String password = e3.getEditText().getText().toString().trim();
+                String confpassword = e4.getEditText().getText().toString().trim();
                 if (TextUtils.isEmpty(name)) {
                     e1.setError("Name is Required.");
                     return;
@@ -76,7 +77,7 @@ public class Registration extends AppCompatActivity {
                     return;
                 }
                 if(!(confpassword.equals(password))){
-                    e4.setText("");
+                    e4.getEditText().setText("");
                     e4.setError("Wrong password");
                     return;
                 }
@@ -87,7 +88,7 @@ public class Registration extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast.makeText(Registration.this, "User Created.", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Registration.this, MainActivity.class);
-                            intent.putExtra("Name", e1.getText().toString());
+                            intent.putExtra("Name", e1.getEditText().getText().toString());
                             startActivity(intent);
                             finish();
 
