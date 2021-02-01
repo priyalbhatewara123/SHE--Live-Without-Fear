@@ -6,60 +6,76 @@
     android:layout_height="match_parent"
     tools:context=".login"
     android:orientation="vertical"
-    android:background="@drawable/background">
+    android:background="@color/white">
 
     <ImageView
+        android:id="@+id/iv2"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:src="@drawable/logoblack"
         android:paddingTop="5dp"
-        android:id="@+id/iv2"/>
+        android:src="@drawable/logo1"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/iv2"
-        android:layout_marginTop="10dp"
-        android:fontFamily="sans-serif-black"
-        android:text="LOGIN HERE"
-        android:textColor="#000000"
-        android:textSize="40sp"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/tv4"
-        />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv4"
-        android:hint="Email"
+        android:layout_below="@+id/iv2"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/et6"
-        android:textColorHint="#000000"
-        android:inputType="textEmailAddress"
-        />
-    <EditText
+        android:layout_marginTop="100dp"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidth="2dp"
+        app:boxStrokeWidthFocused="4dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:hint="Email"
+        app:hintTextColor="@color/black"
+        app:startIconDrawable="@drawable/ic_email_24"
+        app:startIconTint="@color/colorpink"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/colorpink">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et6"
-        android:hint="Password"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:id="@+id/et7"
-        android:textColorHint="#000000"
-        android:inputType="textPassword"
-        />
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidth="2dp"
+        app:boxStrokeWidthFocused="4dp"
+        android:hint="Password"
+        app:hintTextColor="@color/black"
+        app:startIconDrawable="@drawable/ic_lock_24"
+        app:startIconTint="@color/colorpink"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/colorpink">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:id="@+id/forget_password_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et7"
-        android:text="@string/forgot_password"
         android:textColor="#000000"
+        android:text="@string/forgot_password"
         android:layout_marginTop="20dp"
         android:layout_marginHorizontal="20dp"
         android:layout_alignParentEnd="true"
@@ -70,7 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/forget_password_tv"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/button"
+        android:background="@drawable/button_pink"
         android:text="LOGIN"
         android:textColor="#ffffff"
         android:layout_marginTop="20dp"

@@ -13,12 +13,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.ActionCodeSettings;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class login extends AppCompatActivity {
-    EditText e6,e7;
+    TextInputLayout e6,e7;
     Button b;
     TextView t,forgetPassTv;
     FirebaseAuth fb;
@@ -50,8 +52,8 @@ public class login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String email = e6.getText().toString().trim();
-                String password = e7.getText().toString().trim();
+                String email = e6.getEditText().getText().toString().trim();
+                String password = e7.getEditText().getText().toString().trim();
                 if (TextUtils.isEmpty(email)) {
                     e6.setError("Email is Required.");
                     e6.requestFocus();
@@ -86,7 +88,7 @@ public class login extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                String email = e6.getText().toString().trim();
+                String email = e6.getEditText().getText().toString().trim();
                 if (TextUtils.isEmpty(email)) {
                     e6.setError("Email is Required.");
                     e6.requestFocus();
