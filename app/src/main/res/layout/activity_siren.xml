@@ -52,6 +52,7 @@
             android:layout_centerHorizontal="true"
             android:textColor="#000000"/>
 
+
         <Button
             android:layout_width="80dp"
             android:layout_height="80dp"
@@ -60,7 +61,8 @@
             android:background="@mipmap/stop"
             android:layout_marginTop="30dp"
             android:onClick="stop"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            />
 
 
     </RelativeLayout>
