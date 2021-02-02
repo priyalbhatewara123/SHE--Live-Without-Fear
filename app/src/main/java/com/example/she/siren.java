@@ -8,14 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.google.gson.Gson;
 
 public class siren extends AppCompatActivity {
-
-    Button stop, play;
-    TextView stopText, playText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +34,7 @@ public class siren extends AppCompatActivity {
             stop.setVisibility(View.VISIBLE);
             stopText.setVisibility(View.VISIBLE);
 
-        } else{
+        } else {
             stop.setVisibility(View.INVISIBLE);
             stopText.setVisibility(View.INVISIBLE);
 
@@ -49,12 +45,14 @@ public class siren extends AppCompatActivity {
 
     public void play(View view) {
         MyMediaPlayer.getInstance(this).play();
+      
         MyMediaPlayer.decidingNumber = 1;
         decide(MyMediaPlayer.decidingNumber);
     }
 
     public void stop(View v) {
         MyMediaPlayer.getInstance(this).stopPlayer();
+
         MyMediaPlayer.decidingNumber = 0;
         decide(MyMediaPlayer.decidingNumber);
     }
