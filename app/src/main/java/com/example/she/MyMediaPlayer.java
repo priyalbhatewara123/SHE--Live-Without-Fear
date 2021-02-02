@@ -5,7 +5,6 @@ import android.media.MediaPlayer;
 
 public class MyMediaPlayer {
 
-    static int decidingNumber;
     private static MediaPlayer player=null;
     private static MyMediaPlayer single_inst = null;
 
@@ -34,7 +33,6 @@ public class MyMediaPlayer {
             });
             player.start();
         }
-        decidingNumber = 1;
     }
 
     //stop siren
@@ -44,6 +42,5 @@ public class MyMediaPlayer {
             player = null;
         }
         single_inst=null;
-        decidingNumber = 2;
     }
 }
