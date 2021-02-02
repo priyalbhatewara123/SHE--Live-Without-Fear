@@ -54,7 +54,6 @@
             android:gravity="center_horizontal"
             android:layout_centerHorizontal="true"
             android:textColor="#000000"
-            android:visibility="gone"
             />
 
         <Button
@@ -68,7 +67,6 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/txt_view4"
             android:layout_marginTop="30dp"
-            android:visibility="gone"
             />
 
     </RelativeLayout>
