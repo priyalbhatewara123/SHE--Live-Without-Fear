@@ -37,7 +37,7 @@ public class addrelative extends AppCompatActivity {
             public void onClick(View v) {
                 String name = edt_name.getText().toString();
                 String number = edt_num.getText().toString();
-                if(edt_name.length() != 0 && edt_num.length() !=0){
+                if(edt_name.length() != 0 && !checkPhoneNumber()){
                     boolean isInserted = db.insertData(name,number);
                     if(isInserted){
                         edt_name.setText(" ");
@@ -65,7 +65,15 @@ public class addrelative extends AppCompatActivity {
 
             }
         });
+    }
 
-
+    public boolean checkPhoneNumber(){
+        String number = edt_num.getText().toString().trim();
+        if(number.length() < 10){
+            edt_num.setError("Invalid Number");
+            return true;
+        } else {
+            return false;
+        }
     }
 }
