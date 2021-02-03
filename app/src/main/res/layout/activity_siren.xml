@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/background"
     tools:context=".siren">
 
     <androidx.cardview.widget.CardView
@@ -18,7 +18,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/background"
+            android:background="@color/white"
             android:gravity="center">
 
             <TextView
@@ -27,9 +27,9 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
-                android:text="Press the play button below to play the siren."
+                android:text="Press the button below to play the siren."
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/b5"
@@ -49,9 +49,9 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
-                android:text="Press the stop button below to stop the siren."
+                android:text="Press the button below to stop the siren."
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/b6"
