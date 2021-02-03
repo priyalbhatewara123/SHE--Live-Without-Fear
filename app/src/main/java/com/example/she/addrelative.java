@@ -69,7 +69,7 @@ public class addrelative extends AppCompatActivity {
 
     public boolean checkPhoneNumber(){
         String number = edt_num.getText().toString().trim();
-        if(number.length() < 10){
+        if(number.length() != 10){
             edt_num.setError("Invalid Number");
             return true;
         } else {
