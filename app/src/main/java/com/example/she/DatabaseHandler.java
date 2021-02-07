@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -32,22 +33,41 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     //to add new contact
-    public boolean insertData(String name , String num){
+    public boolean insertData(String name, String num) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_2,name);
-        contentValues.put(COL_3,num);
-        long result = db.insert(TABLE_NAME,null,contentValues);
-        if(result == -1)
+        contentValues.put(COL_2, name);
+        contentValues.put(COL_3, num);
+        long result = db.insert(TABLE_NAME, null, contentValues);
+        if (result == -1)
             return false;
         else
             return true;
     }
 
     //to get all contacts
-    public Cursor getAllContacts(){
+    public Cursor getAllContacts() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME,null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
         return cursor;
+    }
+
+    //to delete selected contact
+    public boolean deleteContact(String phoneNumber) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String deleteQuery = "DELETE FROM " + TABLE_NAME + " WHERE " + COL_3 + " = " + phoneNumber;
+        Cursor cursor = db.rawQuery(deleteQuery, null);
+
+        if (cursor.moveToFirst()) {
+            db.close();
+            cursor.close();
+            return true;
+        } else {
+            db.close();
+            cursor.close();
+            return false;
+        }
     }
 }
