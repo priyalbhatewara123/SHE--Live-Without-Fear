@@ -40,7 +40,7 @@ public class ViewContacts extends AppCompatActivity implements ContactListAdapto
     @Override
     public void deleteOptionSelected(String phoneNumber) {
 
-        Toast.makeText(this, "Deleted " + phoneNumber, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Contact Deleted", Toast.LENGTH_SHORT).show();
         //Long number = Long.parseLong(phoneNumber);
 
         db = new DatabaseHandler(this);
