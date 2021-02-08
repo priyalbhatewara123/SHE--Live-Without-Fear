@@ -44,7 +44,7 @@ public class ViewContacts extends AppCompatActivity implements ContactListAdapto
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
          builder.setTitle("Delete")
-                .setMessage("Are you sure to delete?")
+                .setMessage("Are you sure you want to delete?")
                 .setIcon(R.drawable.ic_delete_24)
                 .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
