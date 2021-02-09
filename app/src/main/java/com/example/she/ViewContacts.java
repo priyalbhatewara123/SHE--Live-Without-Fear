@@ -1,7 +1,9 @@
 package com.example.she;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
@@ -38,16 +40,31 @@ public class ViewContacts extends AppCompatActivity implements ContactListAdapto
     }
 
     @Override
-    public void deleteOptionSelected(String phoneNumber) {
+    public void deleteOptionSelected(final String phoneNumber) {
 
-        Toast.makeText(this, "Deleted " + phoneNumber, Toast.LENGTH_SHORT).show();
-        //Long number = Long.parseLong(phoneNumber);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+         builder.setTitle("Delete")
+                .setMessage("Are you sure to delete?")
+                .setIcon(R.drawable.ic_delete_24)
+                .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(ViewContacts.this, "Contact Deleted", Toast.LENGTH_SHORT).show();
+                        db = new DatabaseHandler(ViewContacts.this);
+                        db.deleteContact(phoneNumber);
+                        updateListView();
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).show();
 
-        db = new DatabaseHandler(this);
-        db.deleteContact(phoneNumber);
-        updateListView();
     }
 
+    //updates the list view
     public void updateListView() {
         listView = findViewById(R.id.list_view);
         db = new DatabaseHandler(this);
