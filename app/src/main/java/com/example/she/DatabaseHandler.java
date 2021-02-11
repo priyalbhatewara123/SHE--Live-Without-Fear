@@ -39,17 +39,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         contentValues.put(COL_2, name);
         contentValues.put(COL_3, num);
         long result = db.insert(TABLE_NAME, null, contentValues);
-        if (result == -1)
-            return false;
-        else
-            return true;
+        return result != -1;
     }
 
     //to get all contacts
     public Cursor getAllContacts() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
-        return cursor;
+        return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
 
     //to delete selected contact
@@ -69,5 +65,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             cursor.close();
             return false;
         }
+    }
+
+    public int getContact(String phoneNo){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME+" WHERE "+COL_3+" = "+phoneNo, null);
+        int noOfContacts = cursor.getCount();
+        cursor.close();
+        return noOfContacts ;
     }
 }
