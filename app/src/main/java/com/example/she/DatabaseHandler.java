@@ -70,4 +70,27 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             return false;
         }
     }
+
+    //to update the contact
+    public void updateContact(String oldPhoneNumber, String name, String newPhoneNumber){
+        /*
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String updateQuery = "UPDATE "+ TABLE_NAME + " SET " + COL_2 + " = " + name + " , " + COL_3 + " = " + newPhoneNumber + " WHERE " + COL_3 + " = " + oldPhoneNumber;
+        db.execSQL(updateQuery);
+        db.close();
+         */
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COL_2, name);
+        values.put(COL_3, newPhoneNumber);
+
+        // updating row
+        db.update(TABLE_NAME, values, COL_3 + " = ?",
+                new String[] {oldPhoneNumber});
+        db.close();
+    }
+
 }

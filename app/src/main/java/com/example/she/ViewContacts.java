@@ -4,9 +4,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.util.Pair;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
@@ -36,7 +38,10 @@ public class ViewContacts extends AppCompatActivity implements ContactListAdapto
 
     @Override
     public void editOptionSelected(String phoneNumber) {
-        Toast.makeText(this, "Edit coming soon", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(ViewContacts.this, EditContactDetails.class);
+        intent.putExtra("oldPhoneNumber", phoneNumber);
+        startActivity(intent);
+        finish();
     }
 
     @Override
