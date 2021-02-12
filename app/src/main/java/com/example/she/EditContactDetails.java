@@ -40,8 +40,6 @@ public class EditContactDetails extends AppCompatActivity {
                     databaseHandler.updateContact(oldPhoneNumber, contactName, newPhoneNumber);
 
                     Intent intent = new Intent(EditContactDetails.this, ViewContacts.class);
-                    // set the new task and clear flags
-                    //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
                 }

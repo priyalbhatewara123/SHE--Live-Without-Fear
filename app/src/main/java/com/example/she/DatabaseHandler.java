@@ -73,13 +73,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     //to update the contact
     public void updateContact(String oldPhoneNumber, String name, String newPhoneNumber){
-        /*
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        String updateQuery = "UPDATE "+ TABLE_NAME + " SET " + COL_2 + " = " + name + " , " + COL_3 + " = " + newPhoneNumber + " WHERE " + COL_3 + " = " + oldPhoneNumber;
-        db.execSQL(updateQuery);
-        db.close();
-         */
 
         SQLiteDatabase db = this.getWritableDatabase();
 
