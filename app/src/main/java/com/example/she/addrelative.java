@@ -35,13 +35,13 @@ public class addrelative extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = edt_name.getText().toString();
-                String number = edt_num.getText().toString();
-                if(edt_name.length() != 0 && !checkPhoneNumber()){
+                String name = edt_name.getText().toString().trim();
+                String number = edt_num.getText().toString().trim();
+                if(edt_name.length() != 0 && !checkPhoneNumber() && !isCheckContactExist(number)){
                     boolean isInserted = db.insertData(name,number);
                     if(isInserted){
-                        edt_name.setText(" ");
-                        edt_num.setText(" ");
+                        edt_name.setText(null);
+                        edt_num.setText(null);
                         Toast.makeText(addrelative.this, "Contact added successfully!", Toast.LENGTH_SHORT).show();
                     }
                     else
@@ -71,9 +71,19 @@ public class addrelative extends AppCompatActivity {
         String number = edt_num.getText().toString().trim();
         if(number.length() != 10){
             edt_num.setError("Invalid Number");
+            edt_num.requestFocus();
             return true;
         } else {
             return false;
         }
+    }
+
+    private boolean isCheckContactExist(String phoneNo){
+        if(db.getContact(phoneNo) != 0) {
+            edt_num.setError("Contact Number Already Exists");
+            edt_num.requestFocus();
+            return true;
+        }
+        return false;
     }
 }
