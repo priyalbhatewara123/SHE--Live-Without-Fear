@@ -67,11 +67,35 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
     }
 
-    public int getContact(String phoneNo){
+    //to update the contact
+    public void updateContact(String oldPhoneNumber, String name, String newPhoneNumber) {
+
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME+" WHERE "+COL_3+" = "+phoneNo, null);
+
+        ContentValues values = new ContentValues();
+        values.put(COL_2, name);
+        values.put(COL_3, newPhoneNumber);
+
+        db.update(TABLE_NAME, values, COL_3 + " = ?",
+                new String[]{oldPhoneNumber});
+        db.close();
+    }
+
+    //get the contact from the database
+    public int getContact(String phoneNo) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COL_3 + " = " + phoneNo, null);
         int noOfContacts = cursor.getCount();
         cursor.close();
-        return noOfContacts ;
+        return noOfContacts;
+    }
+
+    //get the contact from the database
+    public int getName(String name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COL_2 + " = '" + name + "'", null);
+        int noOfContacts = cursor.getCount();
+        cursor.close();
+        return noOfContacts;
     }
 }
