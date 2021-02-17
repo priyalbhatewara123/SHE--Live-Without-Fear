@@ -16,7 +16,8 @@ Women's safety is a major social concern in the present day. Women of various ag
 <div>
  <img src="https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/screenshots/Screenshot1.jpeg" width="200" padding-right="2px">
  <img src="https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/screenshots/Screenshot4.jpeg" width="200" padding-right="2px">
- <img src="https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/screenshots/Screenshot3.jpeg" width="200">
+ <img src="https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/screenshots/Screenshot3.jpeg" width="200" padding-right="2px">
+ <img src="https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/screenshots/Screenshot5.jpeg" width="200">
 </div> 
 
 ## 📌 Features / Workflow: 
@@ -55,5 +56,5 @@ You can find code of conduct [here](https://github.com/priyalbhatewara123/SHE--L
 ## 📌 LICENSE 
 This project's repository is licensed under the [Apache License 2.0](https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/LICENSE). Please see the `LICENSE.md` file for more details.
 
+## <p align = "center">Project Maintainer: Priyal Bhatewara </p>
 ### <p align = "center"> [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) </p> 
-## <p align = "center">by Priyal Bhatewara </p>
