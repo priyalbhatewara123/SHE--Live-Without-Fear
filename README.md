@@ -1,25 +1,32 @@
-# SHE--Live-Without-Fear
+# <p align = "center"> SHE - Live without Fear </p>
+![Banner](https://i.pinimg.com/originals/fe/2a/d5/fe2ad54ac1466a8e3312c7984e5cdb75.jpg)
 
-<p align="center">
-  <img src="https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/app/src/main/res/mipmap-xhdpi/logo.png" width="200" />
-</p>
+SHE is a special purpose Women safety Android application 📱 that can be accessed easily at the time of emergency 🚨. The user just needs to press an Emergency button and the app will send an alert message along with the current location of the user to the registered contacts, thereby making a distress call at the time of need 🚀🙌
+<br>
+<br>
+[![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/built-for-android.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/powered-by-responsibility.svg)](https://forthebadge.com)
 
-SHE is a Women safety android application📱 that can be accessed easily at the time of emergency 🚨👀. User just need to press an emergency button and it sends an alert message along with the current location to the registered contacts.🚀🙌
+## 📌 Motivation 
+Women's safety is a major social concern in the present day. Women of various age groups have been subjected to domestic violence, abuse and rape. Ladies ought to travel late night generally, so it's important to take essential precautions to remain safe. Although the government is taking necessary measures for their safety, still, there are free safety apps for women that can help them to stay safe. Most of the females these days carry their smartphone with them, so it is necessary to have at least one personal safety app installed. 👮‍♀️✔
 
-## Motivation✨
-Women's safety is a big concern till date. Womens of various age group have been subjected to domestic violence,abuse and rape. Womens ougth to travel late night generally , so it's important to remain safe . Although the government is taking necessary measures for their safety, still, there are free safety apps for women that can help them to stay safe. Most of the females these days carry their smartphone with them, so it is necessary to have at least one personal safety app installed. 👮‍♀️✔
+## 📌 App's Interface Demo (with Screenshots)
+<div>
+ <img src="https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/screenshots/Screenshot1.jpeg" width="200" padding-right="2px">
+ <img src="https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/screenshots/Screenshot4.jpeg" width="200" padding-right="2px">
+ <img src="https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/screenshots/Screenshot3.jpeg" width="200" padding-right="2px">
+ <img src="https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/screenshots/Screenshot5.jpeg" width="200">
+</div> 
 
-## Demo
-
-<img src="https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/screenshots/Screenshot1.jpeg" width="200">
-
-## Features / Workflow: 
+## 📌 Features / Workflow: 
 * First User need to register contacts of her family members and friends.
 * At the time of emergency , user needs to press emergency button to send an alert message to the registered contacts.
 * She can play fake siren by clicking the play button.
 * She can call on various helpline numbers on just a single click.
 
-## Tech Stack👩‍💻
+## 📌 Tech Stack: 💻
 
 **Language :**
 * Java
@@ -36,14 +43,18 @@ Fused Location Provider API
 implementation "androidx.cardview:cardview:1.0.0"
 implementation 'com.google.android.gms:play-services-location:17.0.0' 
 ```
-### Built in : Android Studio🚀
+### Built in : Android Studio 🚀
 
-## Contributing Guidelines
-Check the guidelines [here](https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/CONTRIBUTING.md).
+## 📌 Contributing Guidelines
+We are happy to welcome all the contributions from anyone willing to improve/add new features to this project. Thank you for helping out and remember, no contribution is too small. 
+Check the full guidelines [here](https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/CONTRIBUTING.md).
 
-## Code of Conduct
+## 📌 Code of Conduct
+In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to make participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
 You can find code of conduct [here](https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/CODE_OF_CONDUCT.md).
 
-## LICENSE 
+## 📌 LICENSE 
+This project's repository is licensed under the [Apache License 2.0](https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/LICENSE). Please see the `LICENSE.md` file for more details.
 
-[Apache License 2.0](https://github.com/priyalbhatewara123/SHE--Live-Without-Fear/blob/master/LICENSE)
+## <p align = "center">Project Maintainer: Priyal Bhatewara </p>
+### <p align = "center"> [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) </p> 
