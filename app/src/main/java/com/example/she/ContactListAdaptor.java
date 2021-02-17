@@ -68,27 +68,34 @@ public class ContactListAdaptor extends ArrayAdapter<Pair<String, String>> {
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
-        viewHolder.contactName.setText(list.get(position).first);
+        if (list.get(position).first.equals("No Such Contact Found")) {
+            viewHolder.contactName.setText("No Such Contact Found");
+            viewHolder.contactNameInitial.setVisibility(View.GONE);
+            viewHolder.contactNumber.setVisibility(View.GONE);
+            viewHolder.optionsIv.setVisibility(View.GONE);
+        } else {
+            viewHolder.contactName.setText(list.get(position).first);
 
-        viewHolder.contactNameInitial.setText(Character.toString(Character.toUpperCase(
-                list.get(position).first.charAt(0)
-        )));
-        viewHolder.contactNumber.setText(list.get(position).second);
+            viewHolder.contactNameInitial.setText(Character.toString(Character.toUpperCase(
+                    list.get(position).first.charAt(0)
+            )));
+            viewHolder.contactNumber.setText(list.get(position).second);
 
-        viewHolder.optionsIv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                displayPopMenu(v, list.get(position).second);
-            }
-        });
+            viewHolder.optionsIv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    displayPopMenu(v, list.get(position).second);
+                }
+            });
 
-        view.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                displayPopMenu(v.findViewById(R.id.options), list.get(position).second);
-                return true;
-            }
-        });
+            view.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    displayPopMenu(v.findViewById(R.id.options), list.get(position).second);
+                    return true;
+                }
+            });
+        }
         return view;
     }
 

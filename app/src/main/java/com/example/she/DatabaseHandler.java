@@ -9,6 +9,9 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DatabaseHandler extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "She.db";
     public static final String TABLE_NAME = "Contacts";
@@ -67,11 +70,18 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
     }
 
-    public int getContact(String phoneNo){
+    public int getContact(String phoneNo) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME+" WHERE "+COL_3+" = "+phoneNo, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COL_3 + " = " + phoneNo, null);
         int noOfContacts = cursor.getCount();
         cursor.close();
-        return noOfContacts ;
+        return noOfContacts;
+    }
+
+    //search functionality
+    public Cursor searchContacts(String keyword) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COL_2 + " LIKE ?", new String[]{"%" + keyword + "%"});
+        return cursor;
     }
 }
