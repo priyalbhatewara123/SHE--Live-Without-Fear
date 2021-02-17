@@ -7,12 +7,35 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
+import android.app.ActivityOptions;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.util.Pair;
+import android.view.ContextMenu;
+import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 
@@ -23,11 +46,14 @@ public class ViewContacts extends AppCompatActivity implements ContactListAdapto
     ArrayList<Pair<String, String>> contactList;
     ContactListAdaptor contactListAdaptor;
     SearchView searchView;
+    TextInputLayout et_name, et_number;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_contacts);
+
         searchView = findViewById(R.id.search_bar);
         contactList = new ArrayList<>();
         db = new DatabaseHandler(ViewContacts.this);
@@ -52,8 +78,72 @@ public class ViewContacts extends AppCompatActivity implements ContactListAdapto
     }
 
     @Override
-    public void editOptionSelected(String phoneNumber) {
-        Toast.makeText(this, "Edit coming soon", Toast.LENGTH_SHORT).show();
+    public void editOptionSelected(final String phoneNumber, String name) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(ViewContacts.this);
+
+        LayoutInflater inflater = ViewContacts.this.getLayoutInflater();
+        final ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.edit_contact, null);
+        et_number = viewGroup.findViewById(R.id.et_edit_number);
+        et_name = viewGroup.findViewById(R.id.et_edit_name);
+        et_number.getEditText().setText(phoneNumber);
+        et_name.getEditText().setText(name);
+
+        builder.setView(viewGroup)
+                .setPositiveButton("Update", null)
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        Button button = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkPhone() & checkName() && isCheckContactExist(alertDialog)) {
+                    db.updateContact(phoneNumber, et_name.getEditText().getText().toString(), et_number.getEditText().getText().toString());
+                    Toast.makeText(ViewContacts.this, "Contact Updated", Toast.LENGTH_SHORT).show();
+                    updateListView();
+                    alertDialog.dismiss();
+                }
+            }
+        });
+    }
+
+    public boolean checkName() {
+        String name = et_name.getEditText().getText().toString().trim();
+        if (name.length() == 0) {
+            et_name.setError("Invalid Name");
+            et_name.requestFocus();
+            return false;
+        }
+        et_name.setErrorEnabled(false);
+        return true;
+    }
+
+    public boolean checkPhone() {
+        String number = et_number.getEditText().getText().toString().trim();
+        if (number.length() != 10) {
+            et_number.setError("Invalid Number");
+            et_number.requestFocus();
+            return false;
+        } else {
+            et_number.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    private boolean isCheckContactExist(AlertDialog alertDialog) {
+        String name = et_name.getEditText().getText().toString().trim();
+        String number = et_number.getEditText().getText().toString().trim();
+
+        if (db.getContact(number) == 0 || db.getName(name) == 0) {
+            return true;
+        }
+        Toast.makeText(ViewContacts.this, "Contact Updated", Toast.LENGTH_SHORT).show();
+        alertDialog.dismiss();
+        return false;
     }
 
     @Override

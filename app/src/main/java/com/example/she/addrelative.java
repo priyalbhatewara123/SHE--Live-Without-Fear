@@ -43,6 +43,7 @@ public class addrelative extends AppCompatActivity {
                         edt_name.setText(null);
                         edt_num.setText(null);
                         Toast.makeText(addrelative.this, "Contact added successfully!", Toast.LENGTH_SHORT).show();
+                        edt_name.requestFocus();
                     }
                     else
                         Toast.makeText(addrelative.this, "Something went wrong!", Toast.LENGTH_SHORT).show();

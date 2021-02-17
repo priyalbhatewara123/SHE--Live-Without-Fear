@@ -27,7 +27,7 @@ public class ContactListAdaptor extends ArrayAdapter<Pair<String, String>> {
     Context context;
 
     interface ContactItemInterface {
-        void editOptionSelected(String phoneNumber);
+        void editOptionSelected(String phoneNumber, String name);
 
         void deleteOptionSelected(String phoneNumber);
     }
@@ -84,19 +84,19 @@ public class ContactListAdaptor extends ArrayAdapter<Pair<String, String>> {
             viewHolder.optionsIv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    displayPopMenu(v, list.get(position).second);
+                    displayPopMenu(v, list.get(position).second, list.get(position).first);
                 }
             });
 
             view.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    displayPopMenu(v.findViewById(R.id.options), list.get(position).second);
+                    displayPopMenu(v.findViewById(R.id.options), list.get(position).second, list.get(position).first);
                     return true;
                 }
             });
-        }
-        return view;
+
+            return view;
     }
 
     public class ViewHolder {
@@ -106,7 +106,7 @@ public class ContactListAdaptor extends ArrayAdapter<Pair<String, String>> {
         ImageView optionsIv;
     }
 
-    void displayPopMenu(View view, final String phoneNumber) {
+    void displayPopMenu(View view, final String phoneNumber, final String name) {
         PopupMenu popupMenu = new PopupMenu(context, view);
         popupMenu.inflate(R.menu.contact_list_menu);
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -115,7 +115,7 @@ public class ContactListAdaptor extends ArrayAdapter<Pair<String, String>> {
                 if (item != null) {
                     switch (item.getItemId()) {
                         case R.id.edit: {
-                            itemInterface.editOptionSelected(phoneNumber);
+                            itemInterface.editOptionSelected(phoneNumber, name);
                         }
                         break;
                         case R.id.delete: {
