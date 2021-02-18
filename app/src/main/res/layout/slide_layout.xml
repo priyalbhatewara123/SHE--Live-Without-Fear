@@ -19,7 +19,7 @@
         android:layout_below="@+id/image_view"
         android:layout_centerHorizontal="true"
         android:text="STEP 1"
-        android:textColor="#000000"
+        android:textColor="@color/colorpink"
         android:textSize="30sp"
         android:id="@+id/txt_view5"
         android:textStyle="italic|bold"

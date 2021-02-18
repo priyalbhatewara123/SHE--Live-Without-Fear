@@ -22,7 +22,7 @@ public class Howtouse extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_howtouse);
         Window window = Howtouse.this.getWindow();
-        window.setStatusBarColor(ContextCompat.getColor(Howtouse.this, R.color.purple));
+        window.setStatusBarColor(ContextCompat.getColor(Howtouse.this, R.color.colorpink));
 
         viewPager = findViewById(R.id.view_page);
         linearLayout = findViewById(R.id.ll);
@@ -42,7 +42,7 @@ public class Howtouse extends AppCompatActivity {
             linearLayout.addView(mDots[i]);
         }
         if(mDots.length>0){
-            mDots[position].setTextColor(getResources().getColor(R.color.white));
+            mDots[position].setTextColor(getResources().getColor(R.color.black));
         }
     }
 
