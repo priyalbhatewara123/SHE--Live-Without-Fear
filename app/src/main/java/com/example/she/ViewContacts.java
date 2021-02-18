@@ -25,6 +25,8 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 import java.util.ArrayList;
 
 public class ViewContacts extends AppCompatActivity implements ContactListAdaptor.ContactItemInterface {
@@ -33,7 +35,7 @@ public class ViewContacts extends AppCompatActivity implements ContactListAdapto
     DatabaseHandler db;
     ArrayList<Pair<String, String>> contactList;
     ContactListAdaptor contactListAdaptor;
-    EditText et_name, et_number;
+    TextInputLayout et_name, et_number;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +52,10 @@ public class ViewContacts extends AppCompatActivity implements ContactListAdapto
         final ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.edit_contact, null);
         et_number = viewGroup.findViewById(R.id.et_edit_number);
         et_name = viewGroup.findViewById(R.id.et_edit_name);
-        et_number.setText(phoneNumber);
-        et_name.setText(name);
+        et_number.getEditText().setText(phoneNumber);
+        et_name.getEditText().setText(name);
 
         builder.setView(viewGroup)
-                .setTitle("Edit Contact Details")
-                .setIcon(R.drawable.ic_edit_24)
                 .setPositiveButton("Update", null)
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -66,11 +66,11 @@ public class ViewContacts extends AppCompatActivity implements ContactListAdapto
         alertDialog.show();
         Button button = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
         button.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-                if (checkPhone() & isCheckContactExist(et_number.getText().toString()) & checkName()) {
-                    db.updateContact(phoneNumber, et_name.getText().toString(), et_number.getText().toString());
+                if (checkPhone() & checkName() && isCheckContactExist(alertDialog)) {
+                    db.updateContact(phoneNumber, et_name.getEditText().getText().toString(), et_number.getEditText().getText().toString());
+                    Toast.makeText(ViewContacts.this, "Contact Updated", Toast.LENGTH_SHORT).show();
                     updateListView();
                     alertDialog.dismiss();
                 }
@@ -79,33 +79,38 @@ public class ViewContacts extends AppCompatActivity implements ContactListAdapto
     }
 
     public boolean checkName() {
-        String name = et_name.getText().toString().trim();
+        String name = et_name.getEditText().getText().toString().trim();
         if (name.length() == 0) {
             et_name.setError("Invalid Name");
             et_name.requestFocus();
             return false;
         }
+        et_name.setErrorEnabled(false);
         return true;
     }
 
     public boolean checkPhone() {
-        String number = et_number.getText().toString().trim();
+        String number = et_number.getEditText().getText().toString().trim();
         if (number.length() != 10) {
             et_number.setError("Invalid Number");
             et_number.requestFocus();
             return false;
         } else {
+            et_number.setErrorEnabled(false);
             return true;
         }
     }
 
-    private boolean isCheckContactExist(String phoneNo) {
-        if (db.getContact(phoneNo) != 0) {
-            et_number.setError("Number Already Exists");
-            et_number.requestFocus();
-            return false;
+    private boolean isCheckContactExist(AlertDialog alertDialog) {
+        String name = et_name.getEditText().getText().toString().trim();
+        String number = et_number.getEditText().getText().toString().trim();
+
+        if (db.getContact(number) == 0 || db.getName(name) == 0) {
+            return true;
         }
-        return true;
+        Toast.makeText(ViewContacts.this, "Contact Updated", Toast.LENGTH_SHORT).show();
+        alertDialog.dismiss();
+        return false;
     }
 
     @Override
