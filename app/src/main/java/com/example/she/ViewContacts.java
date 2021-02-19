@@ -1,5 +1,12 @@
 package com.example.she;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.util.Pair;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,8 +30,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
@@ -35,12 +45,35 @@ public class ViewContacts extends AppCompatActivity implements ContactListAdapto
     DatabaseHandler db;
     ArrayList<Pair<String, String>> contactList;
     ContactListAdaptor contactListAdaptor;
+    SearchView searchView;
     TextInputLayout et_name, et_number;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_contacts);
+
+        searchView = findViewById(R.id.search_bar);
+        contactList = new ArrayList<>();
+        db = new DatabaseHandler(ViewContacts.this);
+
+        //searching feature
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                search(query);
+                searchView.clearFocus();
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                search(newText);
+                return false;
+            }
+        });
+
         updateListView();
     }
 
@@ -141,7 +174,6 @@ public class ViewContacts extends AppCompatActivity implements ContactListAdapto
     //updates the list view
     public void updateListView() {
         listView = findViewById(R.id.list_view);
-        db = new DatabaseHandler(this);
         contactList = new ArrayList<>();
         Cursor cursor = db.getAllContacts();
 
@@ -153,9 +185,28 @@ public class ViewContacts extends AppCompatActivity implements ContactListAdapto
             while (cursor.moveToNext()) {
                 Pair<String, String> contact = new Pair<>(cursor.getString(1), cursor.getString(2));
                 contactList.add(contact);
-                contactListAdaptor = new ContactListAdaptor(this, contactList, this);
-                listView.setAdapter(contactListAdaptor);
             }
+            contactListAdaptor = new ContactListAdaptor(this, contactList, this);
+            listView.setAdapter(contactListAdaptor);
+        }
+    }
+
+    public void search(String keyword) {
+        Cursor cursor = db.searchContacts(keyword);
+        if (cursor.getCount() == 0) {
+            Pair<String, String> contact = new Pair<>("No Such Contact Found", null);
+            contactListAdaptor.clear();
+            contactList.add(contact);
+            contactListAdaptor = new ContactListAdaptor(ViewContacts.this, contactList, null);
+            listView.setAdapter(contactListAdaptor);
+        } else {
+            contactListAdaptor.clear();
+            while (cursor.moveToNext()) {
+                Pair<String, String> contact = new Pair<>(cursor.getString(1), cursor.getString(2));
+                contactList.add(contact);
+            }
+            contactListAdaptor = new ContactListAdaptor(ViewContacts.this, contactList, ViewContacts.this);
+            listView.setAdapter(contactListAdaptor);
         }
     }
 }

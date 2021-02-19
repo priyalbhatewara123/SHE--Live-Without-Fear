@@ -4,34 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewContacts"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ViewContacts">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        app:cardCornerRadius="50dp"
+        android:layout_margin="10dp"
         android:elevation="5dp"
-        android:layout_margin="10dp">
+        app:cardCornerRadius="50dp">
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/search_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        app:queryHint="Search Contact"
-        android:layout_alignParentEnd="true"
-        app:iconifiedByDefault="false"
-        app:queryBackground="@color/white" />
+        <SearchView
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:iconifiedByDefault="true"
+            android:queryBackground="@color/white"
+            android:queryHint="Search Contact"/>
 
     </androidx.cardview.widget.CardView>
 
     <ListView
+        android:id="@+id/list_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/list_view"
         android:layout_below="@id/card_view" />
 
 </RelativeLayout>

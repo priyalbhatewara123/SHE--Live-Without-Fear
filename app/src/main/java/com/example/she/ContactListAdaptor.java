@@ -11,11 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.ArrayList;
 
@@ -68,29 +66,37 @@ public class ContactListAdaptor extends ArrayAdapter<Pair<String, String>> {
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
-        viewHolder.contactName.setText(list.get(position).first);
+        if (list.get(position).first.equals("No Such Contact Found")) {
+            viewHolder.contactName.setText("No Such Contact Found");
+            viewHolder.contactNameInitial.setVisibility(View.GONE);
+            viewHolder.contactNumber.setVisibility(View.GONE);
+            viewHolder.optionsIv.setVisibility(View.GONE);
+        } else {
+            viewHolder.contactName.setText(list.get(position).first);
 
-        viewHolder.contactNameInitial.setText(Character.toString(Character.toUpperCase(
-                list.get(position).first.charAt(0)
-        )));
-        viewHolder.contactNumber.setText(list.get(position).second);
+            viewHolder.contactNameInitial.setText(Character.toString(Character.toUpperCase(
+                    list.get(position).first.charAt(0)
+            )));
+            viewHolder.contactNumber.setText(list.get(position).second);
 
-        viewHolder.optionsIv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                displayPopMenu(v, list.get(position).second, list.get(position).first);
-            }
-        });
+            viewHolder.optionsIv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    displayPopMenu(v, list.get(position).second, list.get(position).first);
+                }
+            });
 
-        view.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                displayPopMenu(v.findViewById(R.id.options), list.get(position).second, list.get(position).first);
-                return true;
-            }
-        });
+            view.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    displayPopMenu(v.findViewById(R.id.options), list.get(position).second, list.get(position).first);
+                    return true;
+                }
+            });
+        }
         return view;
     }
+
 
     public class ViewHolder {
         TextView contactName;
