@@ -11,11 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.ArrayList;
 
@@ -95,9 +93,10 @@ public class ContactListAdaptor extends ArrayAdapter<Pair<String, String>> {
                     return true;
                 }
             });
-
-            return view;
+        }
+        return view;
     }
+
 
     public class ViewHolder {
         TextView contactName;

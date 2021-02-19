@@ -69,20 +69,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             return false;
         }
     }
-
-    public int getContact(String phoneNo) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COL_3 + " = " + phoneNo, null);
-        int noOfContacts = cursor.getCount();
-        cursor.close();
-        return noOfContacts;
-    }
-
+    
     //search functionality
     public Cursor searchContacts(String keyword) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COL_2 + " LIKE ?", new String[]{"%" + keyword + "%"});
         return cursor;
+    }
 
     //to update the contact
     public void updateContact(String oldPhoneNumber, String name, String newPhoneNumber) {
