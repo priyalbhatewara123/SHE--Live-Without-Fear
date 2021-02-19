@@ -48,7 +48,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     //to get all contacts
     public Cursor getAllContacts() {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        return db.rawQuery("SELECT * FROM " + TABLE_NAME + " ORDER BY " + COL_2 + " ASC", null);
     }
 
     //to delete selected contact
@@ -73,7 +73,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     //search functionality
     public Cursor searchContacts(String keyword) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COL_2 + " LIKE ?", new String[]{"%" + keyword + "%"});
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COL_2 + " LIKE ?" + " ORDER BY " + COL_2 + " ASC", new String[]{"%" + keyword + "%"});
         return cursor;
     }
 
