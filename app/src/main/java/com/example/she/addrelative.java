@@ -14,11 +14,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firestore.admin.v1beta1.Progress;
 
 public class addrelative extends AppCompatActivity {
-    EditText edt_name , edt_num ;
+    TextInputLayout edt_name , edt_num ;
     Button add , contacts ;
     DatabaseHandler db;
 
@@ -35,13 +36,13 @@ public class addrelative extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = edt_name.getText().toString().trim();
-                String number = edt_num.getText().toString().trim();
-                if(edt_name.length() != 0 && !checkPhoneNumber() && !isCheckContactExist(number)){
+                String name = edt_name.getEditText().getText().toString().trim();
+                String number = edt_num.getEditText().getText().toString().trim();
+                if(edt_name.getEditText().length() != 0 && !checkPhoneNumber() && !isCheckContactExist(number)){
                     boolean isInserted = db.insertData(name,number);
                     if(isInserted){
-                        edt_name.setText(null);
-                        edt_num.setText(null);
+                        edt_name.getEditText().setText(null);
+                        edt_num.getEditText().setText(null);
                         Toast.makeText(addrelative.this, "Contact added successfully!", Toast.LENGTH_SHORT).show();
                         edt_name.requestFocus();
                     }
@@ -69,7 +70,7 @@ public class addrelative extends AppCompatActivity {
     }
 
     public boolean checkPhoneNumber(){
-        String number = edt_num.getText().toString().trim();
+        String number = edt_num.getEditText().getText().toString().trim();
         if(number.length() != 10){
             edt_num.setError("Invalid Number");
             edt_num.requestFocus();
